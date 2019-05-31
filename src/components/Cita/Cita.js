@@ -29,14 +29,14 @@ class Cita extends Component {
                     <div className="row my-2">
                         <div className="cell-md-6">
                             <div className="form-group">
-                                <label>Fecha</label>
-                                <input type="date" />
+                                <label>Fecha / Hora</label>
+                                <input type="datetime-local" />
                             </div>
                         </div>
                         <div className="cell-md-6">
                             <div className="form-group">
-                                <label>Hora</label>
-                                <input type="time" />
+                                <label>Edad</label>
+                                <input type="number" />
                             </div>
                         </div>
                     </div>
@@ -48,7 +48,7 @@ class Cita extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="row">
+                    <div className="row my-2">
                         <div className="cell">
                             <button type="submit" className="button primary">Registrar cita</button>
                         </div>
