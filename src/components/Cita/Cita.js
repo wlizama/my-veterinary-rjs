@@ -54,88 +54,100 @@ class Cita extends Component {
         const {isError} = this.state
 
         return (
-            <div>
-                <h2>{this.state.titulo}</h2>
-                <form onSubmit={this.handleSubmit}>
-                { isError ? 
-                    <InfoBox content="Debe completar todos los datos" type="error" />
-                : null }
-                    <div className="row my-2">
-                        <div className="cell-md-12">
-                            <div className="form-group">
-                                <label>Nombre de Mascota</label>
-                                <input 
-                                    type="text"
-                                    name="nombreMascota"
-                                    onChange={this.handleChange}
-                                    value={this.state.cita.nombreMascota}
-                                />
-                            </div>
-                        </div>
+            <div className="grid">
+                <div className="row my-2">
+                    <div className="cell-md-12">
+                        <h2>{this.state.titulo}</h2>
                     </div>
-                    <div className="row my-2">
-                        <div className="cell-md-12">
-                            <div className="form-group">
-                                <label>Nombre del dueño</label>
-                                <input 
-                                    type="text"
-                                    name="nombreDuenho"
-                                    onChange={this.handleChange}
-                                    value={this.state.cita.nombreDuenho}
-                                />
+                </div>
+                <div className="row my-2">
+                    <div className="cell-md-12">
+                        <form onSubmit={this.handleSubmit}>
+                        { isError ? 
+                            <div className="row my-2">
+                                <div className="cell-md-12">
+                                    <InfoBox content="Debe completar todos los datos" type="error" />
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div className="row my-2">
-                        <div className="cell-md-6">
-                            <div className="form-group">
-                                <label>Fecha / Hora</label>
-                                <input 
-                                    type="datetime-local"
-                                    name="fechaHora"
-                                    onChange={this.handleChange}
-                                    value={this.state.cita.fechaHora}
-                                />
+                        : null }
+                            <div className="row my-2">
+                                <div className="cell-md-12">
+                                    <div className="form-group">
+                                        <label>Nombre de Mascota</label>
+                                        <input 
+                                            type="text"
+                                            name="nombreMascota"
+                                            onChange={this.handleChange}
+                                            value={this.state.cita.nombreMascota}
+                                        />
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div className="cell-md-6">
-                            <div className="form-group">
-                                <label>Edad</label>
-                                <input 
-                                    type="number"
-                                    name="edadMascota"
-                                    onChange={this.handleChange}
-                                    value={this.state.cita.edadMascota}
-                                />
+                            <div className="row my-2">
+                                <div className="cell-md-12">
+                                    <div className="form-group">
+                                        <label>Nombre del dueño</label>
+                                        <input 
+                                            type="text"
+                                            name="nombreDuenho"
+                                            onChange={this.handleChange}
+                                            value={this.state.cita.nombreDuenho}
+                                        />
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div className="row my-2">
-                        <div className="cell-md-12">
-                            <div className="form-group">
-                                <label>Observaciones / sintomas</label>
-                                <textarea
-                                    data-role="textarea"
-                                    className="mb-1"
-                                    name="observaciones"
-                                    onChange={this.handleChange}
-                                    value={this.state.cita.observaciones}
-                                />
+                            <div className="row my-2">
+                                <div className="cell-md-6">
+                                    <div className="form-group">
+                                        <label>Fecha / Hora</label>
+                                        <input 
+                                            type="datetime-local"
+                                            name="fechaHora"
+                                            onChange={this.handleChange}
+                                            value={this.state.cita.fechaHora}
+                                        />
+                                    </div>
+                                </div>
+                                <div className="cell-md-6">
+                                    <div className="form-group">
+                                        <label>Edad</label>
+                                        <input 
+                                            type="number"
+                                            name="edadMascota"
+                                            onChange={this.handleChange}
+                                            value={this.state.cita.edadMascota}
+                                        />
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                            <div className="row my-2">
+                                <div className="cell-md-12">
+                                    <div className="form-group">
+                                        <label>Observaciones / sintomas</label>
+                                        <textarea
+                                            data-role="textarea"
+                                            className="mb-1"
+                                            name="observaciones"
+                                            onChange={this.handleChange}
+                                            value={this.state.cita.observaciones}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="row my-2">
+                                <div className="cell-12">
+                                    <button 
+                                        type="submit"
+                                        className="button primary"
+                                    >
+                                        <span className="mif-floppy-disk pr-2"></span>
+                                        Registrar cita
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <div className="row my-2">
-                        <div className="cell-12">
-                            <button 
-                                type="submit"
-                                className="button primary"
-                            >
-                                <span className="mif-floppy-disk pr-2"></span>
-                                Registrar cita
-                            </button>
-                        </div>
-                    </div>
-                </form>
+                </div>
             </div>
         );
     }
