@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import InfoBox from '../Custom/InfoBox';
+
+import uuid from 'uuid';
 
 class Cita extends Component {
     state = {
@@ -35,23 +38,28 @@ class Cita extends Component {
            nombreDuenho === '' ||
            fechaHora === '' ||
            edadMascota === '' ||
-           observaciones === '' ){
+           observaciones === '' ) {
                this.setState({
                    isError: true
                })
         }
 
-        if(this.state.isError) {
-            console.error("Error, datos incompletos")
-            return
-        }
+        const nuevaCita = {...this.state.cita}
+        nuevaCita.id = uuid()
+
+        this.props.crearNuevaCita(nuevaCita)
     }
 
     render() {
+        const {isError} = this.state
+
         return (
             <div>
                 <h2>{this.state.titulo}</h2>
                 <form onSubmit={this.handleSubmit}>
+                { isError ? 
+                    <InfoBox content="Debe completar todos los datos" type="error" />
+                : null }
                     <div className="row my-2">
                         <div className="cell-md-12">
                             <div className="form-group">
