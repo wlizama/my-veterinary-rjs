@@ -117,11 +117,12 @@ class Cita extends Component {
                         </div>
                     </div>
                     <div className="row my-2">
-                        <div className="cell">
+                        <div className="cell-12">
                             <button 
                                 type="submit"
                                 className="button primary"
                             >
+                                <span className="mif-floppy-disk pr-2"></span>
                                 Registrar cita
                             </button>
                         </div>
