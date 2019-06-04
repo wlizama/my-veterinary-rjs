@@ -9,7 +9,8 @@ class Cita extends Component {
             fechaHora: '',
             edadMascota: '',
             observaciones: ''
-        }
+        },
+        isError: false
     }
 
     handleChange = e => {
@@ -25,11 +26,32 @@ class Cita extends Component {
         })
     }
 
+    handleSubmit = e => {
+        e.preventDefault()
+        
+        const { nombreMascota, nombreDuenho, fechaHora, edadMascota, observaciones } = this.state.cita
+
+        if(nombreMascota === '' ||
+           nombreDuenho === '' ||
+           fechaHora === '' ||
+           edadMascota === '' ||
+           observaciones === '' ){
+               this.setState({
+                   isError: true
+               })
+        }
+
+        if(this.state.isError) {
+            console.error("Error, datos incompletos")
+            return
+        }
+    }
+
     render() {
         return (
             <div>
                 <h2>{this.state.titulo}</h2>
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <div className="row my-2">
                         <div className="cell-md-12">
                             <div className="form-group">
