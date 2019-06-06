@@ -20,14 +20,12 @@ class App extends Component {
 
 	render() {
 		return (
-			<div>
-				<div className="container-fluid">
-					<div className="grid">
-						<div className="row">
-							<div className="cell-lg-8 offset-lg-2 cell-md-10 offset-md-1">
-								<Header titulo="My Veterinary 🐱‍🐉"></Header>
-								<Cita crearNuevaCita={this.crearNuevaCita} />
-							</div>
+			<div className="container-fluid">
+				<div className="grid">
+					<div className="row">
+						<div className="cell-lg-8 offset-lg-2 cell-md-10 offset-md-1">
+							<Header titulo="My Veterinary 🐱‍🐉"></Header>
+							<Cita crearNuevaCita={this.crearNuevaCita} />
 						</div>
 					</div>
 				</div>

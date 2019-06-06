@@ -3,18 +3,22 @@ import InfoBox from '../Custom/InfoBox';
 
 import uuid from 'uuid';
 
+// estado para manejo de datos iniciales
+const stateInicial = {
+    titulo: 'Cita',
+    cita: {
+        nombreMascota: '',
+        nombreDuenho: '',
+        fechaHora: '',
+        edadMascota: '',
+        observaciones: ''
+    },
+    isError: false
+}
+
 class Cita extends Component {
-    state = {
-        titulo: 'Cita',
-        cita: {
-            nombreMascota: '',
-            nombreDuenho: '',
-            fechaHora: '',
-            edadMascota: '',
-            observaciones: ''
-        },
-        isError: false
-    }
+
+    state = { ...stateInicial }
 
     handleChange = e => {
         // almacena en estado cada valor guardando copia de
@@ -34,20 +38,27 @@ class Cita extends Component {
         
         const { nombreMascota, nombreDuenho, fechaHora, edadMascota, observaciones } = this.state.cita
 
+        // validación de datos
         if(nombreMascota === '' ||
            nombreDuenho === '' ||
            fechaHora === '' ||
            edadMascota === '' ||
            observaciones === '' ) {
-               this.setState({
-                   isError: true
-               })
+            this.setState({
+                isError: true
+            })
+            return
         }
 
+        // append ID
         const nuevaCita = {...this.state.cita}
         nuevaCita.id = uuid()
 
+        // se llama evento
         this.props.crearNuevaCita(nuevaCita)
+
+        // limpiar campos
+        this.setState({ ...stateInicial })
     }
 
     render() {
