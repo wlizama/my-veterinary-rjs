@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 
 class SimpleTable extends Component {
     state = {
@@ -29,5 +30,12 @@ class SimpleTable extends Component {
         );
     }
 }
+
+
+SimpleTable.propTypes = {
+    columns : PropTypes.array.isRequired,
+    dataSource : PropTypes.array.isRequired
+}
+
 
 export default SimpleTable;

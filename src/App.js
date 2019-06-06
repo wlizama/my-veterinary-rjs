@@ -17,7 +17,6 @@ class App extends Component {
 		{ field: "fechaHora", title: "Fecha Ingreso" },
 		{ field: "nombreDuenho", title: "Nombre Dueño" },
 		{ field: "observaciones", title: "Observaciones" },
-		{ field: "observaciones", title: "Observaciones" },
 	]
 
 	crearNuevaCita = datos => {
@@ -26,6 +25,19 @@ class App extends Component {
 		this.setState({
 			citas
 		})
+	}
+
+	componentDidMount = () => {
+		const citasLS = localStorage.getItem('citas')
+		if(citasLS) {
+			this.setState({
+				citas: JSON.parse(citasLS)
+			})
+		}
+	}
+
+	componentDidUpdate = () => {
+		localStorage.setItem('citas', JSON.stringify(this.state.citas))
 	}
 	
 	render() {

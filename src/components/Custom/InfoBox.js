@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 
 class InfoBox extends Component {
     state = {
@@ -21,6 +22,11 @@ class InfoBox extends Component {
             </div>
         );
     }
+}
+
+InfoBox.propTypes = {
+    type : PropTypes.string.isRequired,
+    content : PropTypes.string.isRequired
 }
 
 export default InfoBox;

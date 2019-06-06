@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import InfoBox from '../Custom/InfoBox';
-
 import uuid from 'uuid';
+import PropTypes from 'prop-types'
+
 
 // estado para manejo de datos iniciales
 const stateInicial = {
@@ -163,5 +164,12 @@ class Cita extends Component {
         );
     }
 }
+
+
+Cita.propTypes = {
+    crearNuevaCita: PropTypes.func.isRequired,
+    cita: PropTypes.object
+}
+
 
 export default Cita;
