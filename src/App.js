@@ -11,13 +11,18 @@ class App extends Component {
 		citas : []
 	}
 	
-	tableColumnsConfig = [
-		{ field: "nombreMascota", title: "Nombre Mascota" },
-		{ field: "edadMascota", title: "Edad Mascota" },
-		{ field: "fechaHora", title: "Fecha Ingreso" },
-		{ field: "nombreDuenho", title: "Nombre Dueño" },
-		{ field: "observaciones", title: "Observaciones" },
-	]
+	tableConfig = {
+		columns: [
+			{ field: "nombreMascota", title: "Nombre Mascota" },
+			{ field: "edadMascota", title: "Edad Mascota" },
+			{ field: "fechaHora", title: "Fecha Ingreso" },
+			{ field: "nombreDuenho", title: "Nombre Dueño" },
+			{ field: "observaciones", title: "Observaciones" },
+		],
+		messages: {
+			emptyData: "No hay mascotas registradas"
+		}
+	}
 
 	crearNuevaCita = datos => {
 		const citas = [...this.state.citas, datos]
@@ -48,7 +53,7 @@ class App extends Component {
 						<div className="cell-lg-8 offset-lg-2 cell-md-10 offset-md-1">
 							<Header titulo="My Veterinary 🐱‍🐉"></Header>
 							<Cita crearNuevaCita={this.crearNuevaCita} />
-							<SimpleTable columns={this.tableColumnsConfig} dataSource={this.state.citas} />
+							<SimpleTable config={this.tableConfig} dataSource={this.state.citas} />
 						</div>
 					</div>
 				</div>

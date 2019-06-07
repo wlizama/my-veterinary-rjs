@@ -6,26 +6,34 @@ class SimpleTable extends Component {
     }
 
     render() {
+
+        const {columns, messages} = this.props.config
+        const {dataSource} = this.props
+
         return (
             <div>
+                {dataSource.length > 0 ?
                 <table className="table">
                     <thead>
                         <tr>
-                        {this.props.columns.map((column, indx) => 
+                        {columns.map((column, indx) => 
                             <th key={indx} >{column.title}</th>
                         )}
                         </tr>
                     </thead>
                     <tbody>
-                        {this.props.dataSource.map((dataRow, indxR) => 
+                        {dataSource.map((dataRow, indxR) => 
                         <tr key={indxR}>
-                            {this.props.columns.map((column, indxC) =>
+                            {columns.map((column, indxC) =>
                             <td key={indxC}>{dataRow[column.field]}</td>
                             )}
                         </tr>
                         )}
                     </tbody>
                 </table>
+                :
+                <h2>{messages.emptyData}</h2>
+                }
             </div>
         );
     }
@@ -33,7 +41,7 @@ class SimpleTable extends Component {
 
 
 SimpleTable.propTypes = {
-    columns : PropTypes.array.isRequired,
+    config : PropTypes.object.isRequired,
     dataSource : PropTypes.array.isRequired
 }
 
